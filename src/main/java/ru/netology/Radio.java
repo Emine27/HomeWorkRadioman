@@ -1,8 +1,8 @@
 package ru.netology;
 
 public class Radio {
-    private int currentCanal;
-    private int currentVolume;
+    public int currentCanal;
+    public int currentVolume;
 
     public int getCurrentCanal() {
         return currentCanal;
@@ -19,45 +19,39 @@ public class Radio {
 
     }
 
-    public void nextCanal(int newCurrentCanal) {
-        if (newCurrentCanal == 9) {
+    public int nextCanal() {
+        if (currentCanal == 9) {
             currentCanal = 0;
+            return currentCanal;
+        } else {
+            currentCanal = currentCanal + 1;
         }
-        if (newCurrentCanal < 9) {
-            currentCanal = newCurrentCanal + 1;
-        }
+        return currentCanal;
     }
 
-    public void prevCanal(int newCurrentCanal) {
-        if (newCurrentCanal == 0) {
+    public int prevCanal() {
+        if (currentCanal == 0) {
             currentCanal = 9;
+            return currentCanal;
+        } else {
+            currentCanal = currentCanal - 1;
         }
-        if (newCurrentCanal > 0) {
-            currentCanal = newCurrentCanal - 1;
-        }
+        return currentCanal;
 
     }
-    public int getCurrentVolume() {
+
+    public int increaseVolume() {
+        if (currentVolume < 10) {
+            currentVolume = currentVolume + 1;
+        }
         return currentVolume;
     }
 
-
-    public void increaseVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 10) {
-            currentVolume = newCurrentVolume + 1;
+    public int lowerVolume() {
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
         }
-        if (newCurrentVolume >= 10) {
-            currentVolume = 10;
-        }
-    }
-
-    public void lowerVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 0) {
-            currentVolume = newCurrentVolume - 1;
-        }
-        if (newCurrentVolume <= 0) {
-            currentVolume = 0;
-        }
+        return currentVolume;
 
     }
 

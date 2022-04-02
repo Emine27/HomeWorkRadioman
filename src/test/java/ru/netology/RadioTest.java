@@ -16,6 +16,7 @@ class RadioTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioBoundaryTesting2() {
         Radio box = new Radio();
@@ -26,6 +27,7 @@ class RadioTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioBoundaryTesting3() {
         Radio box = new Radio();
@@ -58,6 +60,7 @@ class RadioTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioBoundaryTesting6() {
         Radio box = new Radio();
@@ -72,165 +75,164 @@ class RadioTest {
     @Test
     public void RadioNextCanalBoundaryTesting1() {
         Radio box = new Radio();
+        box.currentCanal = 0;
 
-        box.nextCanal(9);
-
-        int expected = 0;
-        int actual = box.getCurrentCanal();
+        int expected = 1;
+        int actual = box.nextCanal();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioNextCanalBoundaryTesting2() {
         Radio box = new Radio();
+        box.currentCanal = 1;
 
-        box.nextCanal(8);
-
-        int expected = 9;
-        int actual = box.getCurrentCanal();
+        int expected = 2;
+        int actual = box.nextCanal();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioNextCanalBoundaryTesting3() {
         Radio box = new Radio();
+        box.currentCanal = 9;
 
-        box.nextCanal(0);
-
-        int expected = 1;
-        int actual = box.getCurrentCanal();
+        int expected = 0;
+        int actual = box.nextCanal();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioPrevCanalBoundaryTesting1() {
         Radio box = new Radio();
-
-        box.prevCanal(0);
+        box.currentCanal = 0;
 
         int expected = 9;
-        int actual = box.getCurrentCanal();
+        int actual = box.prevCanal();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioPrevCanalBoundaryTesting2() {
         Radio box = new Radio();
-
-        box.prevCanal(1);
+        box.currentCanal = 1;
 
         int expected = 0;
-        int actual = box.getCurrentCanal();
+        int actual = box.prevCanal();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioPrevCanalBoundaryTesting3() {
         Radio box = new Radio();
-
-        box.prevCanal(9);
+        box.currentCanal = 9;
 
         int expected = 8;
-        int actual = box.getCurrentCanal();
+        int actual = box.prevCanal();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioIncreaseVolumeBoundaryTesting1() {
         Radio box = new Radio();
-
-        box.increaseVolume(0);
+        box.currentVolume = 0;
 
         int expected = 1;
-        int actual = box.getCurrentVolume();
+        int actual = box.increaseVolume();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioIncreaseVolumeBoundaryTesting2() {
         Radio box = new Radio();
-
-        box.increaseVolume(1);
+        box.currentVolume = 1;
 
         int expected = 2;
-        int actual = box.getCurrentVolume();
+        int actual = box.increaseVolume();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioIncreaseVolumeBoundaryTesting3() {
         Radio box = new Radio();
-
-        box.increaseVolume(9);
+        box.currentVolume = 9;
 
         int expected = 10;
-        int actual = box.getCurrentVolume();
+        int actual = box.increaseVolume();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioIncreaseVolumeBoundaryTesting4() {
         Radio box = new Radio();
-
-        box.increaseVolume(10);
+        box.currentVolume = 10;
 
         int expected = 10;
-        int actual = box.getCurrentVolume();
+        int actual = box.increaseVolume();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioLowerVolumeBoundaryTesting1() {
         Radio box = new Radio();
-
-        box.lowerVolume(0);
+        box.currentVolume = 0;
 
         int expected = 0;
-        int actual = box.getCurrentVolume();
+        int actual = box.lowerVolume();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioLowerVolumeBoundaryTesting2() {
         Radio box = new Radio();
-
-        box.lowerVolume(1);
+        box.currentVolume = 1;
 
         int expected = 0;
-        int actual = box.getCurrentVolume();
+        int actual = box.lowerVolume();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioLowerVolumeBoundaryTesting3() {
         Radio box = new Radio();
-
-        box.lowerVolume(2);
+        box.currentVolume = 2;
 
         int expected = 1;
-        int actual = box.getCurrentVolume();
+        int actual = box.lowerVolume();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioLowerVolumeBoundaryTesting4() {
         Radio box = new Radio();
-
-        box.lowerVolume(10);
+        box.currentVolume = 10;
 
         int expected = 9;
-        int actual = box.getCurrentVolume();
+        int actual = box.lowerVolume();
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void RadioLowerVolumeBoundaryTesting5() {
         Radio box = new Radio();
-
-        box.lowerVolume(9);
+        box.currentVolume = 9;
 
         int expected = 8;
-        int actual = box.getCurrentVolume();
+        int actual = box.lowerVolume();
 
         assertEquals(expected, actual);
     }
