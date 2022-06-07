@@ -1,18 +1,33 @@
 package ru.netology;
 
 public class Radio {
-    public int currentCanal;
+    private int currentCanal;
+    private int minCanal;
+    private int maxCanal;
     public int currentVolume;
+
+    private int minVolume;
+    private int maxVolume;
+
+    public Radio(int maxCanal) {
+        this.maxCanal = maxCanal - 1;
+        maxVolume = 100;
+    }
+
+    public Radio() {
+        this.maxCanal = 9;
+        maxVolume = 100;
+    }
 
     public int getCurrentCanal() {
         return currentCanal;
     }
 
     public void setCurrentCanal(int newCurrentCanal) {
-        if (newCurrentCanal > 9) {
+        if (newCurrentCanal > maxCanal) {
             return;
         }
-        if (newCurrentCanal < 0) {
+        if (newCurrentCanal < minCanal) {
             return;
         }
         currentCanal = newCurrentCanal;
@@ -20,8 +35,8 @@ public class Radio {
     }
 
     public int nextCanal() {
-        if (currentCanal == 9) {
-            currentCanal = 0;
+        if (currentCanal == maxCanal) {
+            currentCanal = minCanal;
             return currentCanal;
         } else {
             currentCanal = currentCanal + 1;
@@ -30,8 +45,8 @@ public class Radio {
     }
 
     public int prevCanal() {
-        if (currentCanal == 0) {
-            currentCanal = 9;
+        if (currentCanal == minCanal) {
+            currentCanal = maxCanal;
             return currentCanal;
         } else {
             currentCanal = currentCanal - 1;
@@ -41,14 +56,14 @@ public class Radio {
     }
 
     public int increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         }
         return currentVolume;
     }
 
     public int lowerVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         }
         return currentVolume;
